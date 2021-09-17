@@ -1,0 +1,28 @@
+npm install react-native-dotenv
+
+//en babel.config.js agregar:
+module.exports = function(api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: [
+      ["module:react-native-dotenv"]
+    ],
+    
+  };
+};
+
+
+//crear archivo config.js y agregar:
+import {NOMBRE_VARIABLE} from "@env"
+export default {
+    NOMBRE_VARIABLE,
+}
+
+//crear archivo .env en root
+NOMBRE_VARIABLE = 1213131313213213
+
+//en nuestra app importar config.js
+import config from './config'
+//usar como:
+config.NOMBRE_VARIABLE
